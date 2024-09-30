@@ -1,0 +1,17 @@
+size.0: height
+size.1: width
+
+room_size_method: room_size_method
+
+fixed_room_size.0: room_height
+
+fixed_room_size.1: room_width
+range_room_size.0: room_min_height
+range_room_size.1: room_max_height
+range_room_size.2: room_min_width
+range_room_size.3: room_max_width
+
+factor_room_size.0: room_min_height_factor
+factor_room_size.1: room_max_height_factor
+factor_room_size.2: room_min_width_factor
+factor_room_size.3: room_max_width_factor

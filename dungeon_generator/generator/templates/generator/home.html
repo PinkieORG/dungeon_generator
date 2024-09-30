@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="title">
+    <h1>Dungeon Generator</h1>
+</div>
+{% load static %}
+
+<div class="dungeon-generation">
+    <form class="dungeon-generation-form" method="post" novalidate>
+        {% csrf_token %}
+        <div class="form-subgroup">
+            {{ generation_form.height.label_tag }}
+            {{ generation_form.height }}
+            {{ generation_form.width.label_tag }}
+            {{ generation_form.width }}
+        </div>
+        <div class="form-subgroup">
+            {{ generation_form.room_size_method.label_tag }}
+            {{ generation_form.room_size_method }}
+        </div>
+        <div class="form-subgroup">
+            {{ generation_form.room_height.label_tag }}
+            {{ generation_form.room_height }}
+            {{ generation_form.room_width.label_tag }}
+            {{ generation_form.room_width }}
+        </div>
+        <div class="form-subgroup">
+            {{ generation_form.room_min_height_factor.label_tag }}
+            {{ generation_form.room_min_height_factor }}
+            {{ generation_form.room_max_height_factor.label_tag }}
+            {{ generation_form.room_max_height_factor }}
+            {{ generation_form.room_min_width_factor.label_tag }}
+            {{ generation_form.room_min_width_factor }}
+            {{ generation_form.room_max_width_factor.label_tag }}
+            {{ generation_form.room_max_width_factor }}
+        </div>
+        <div class="form-subgroup">
+            {{ generation_form.room_min_height.label_tag }}
+            {{ generation_form.room_min_height }}
+            {{ generation_form.room_max_height.label_tag }}
+            {{ generation_form.room_max_height }}
+            {{ generation_form.room_min_width.label_tag }}
+            {{ generation_form.room_min_width }}
+            {{ generation_form.room_max_width.label_tag }}
+            {{ generation_form.room_max_width }}
+        </div>
+        <div class="form-subgroup">
+            {{ generation_form.name.label_tag }}
+            {{ generation_form.name }}
+        </div>
+        <div class="form-subgroup">
+            {{ generation_form.notes.label_tag }}
+            {{ generation_form.notes }}
+        </div>
+        <div class="buttons">
+            <button type="submit" name="generate_dungeon">Generate dungeon
+            </button>
+            <button type="submit" name="remove_dungeons">Remove dungeons
+            </button>
+        </div>
+    </form>
+</div>
+<div class="wrapper">
+    {% for dungeon in dungeons %}
+    <div class="dungeon">
+        <div class="dungeon-text">
+            {{ dungeon | linebreaksbr }}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}`

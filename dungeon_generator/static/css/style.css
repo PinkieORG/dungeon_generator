@@ -1,0 +1,78 @@
+h1{
+	color:#0052EA;
+}
+
+main {
+text-align: center;
+}
+
+form {
+}
+label, input, textarea, select{
+	display:block;
+	width:100%;
+}
+
+input[type="submit"]{
+	display:inline-block;
+	width:auto;
+}
+
+.errorlist {
+	padding:0;
+	margin:0;
+}
+.errorlist li{
+	color:red;
+	list-style:none;
+}
+
+.alert{
+	padding:0.5rem;
+}
+
+.alert-success{
+	background-color: #dfd
+}
+.alert-error{
+	background-color:#ba2121;
+	color:#fff;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2px;
+}
+
+.dungeon{
+    border: 3px solid #333;
+    padding: 12px;
+}
+
+@font-face {
+  src: url("https://mdn.github.io/shared-assets/fonts/LeagueMono-VF.ttf");
+  font-family: "LeagueMonoVariable";
+  font-style: normal;
+}
+
+.dungeon-text{
+    font: 0.5em "LeagueMonoVariable";
+    font-stretch: 200%;
+}
+
+.title {
+    margin: auto;
+    width: 60%;
+}
+
+.dungeon-generation {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.form-subgroup {
+    display: flex;
+}
