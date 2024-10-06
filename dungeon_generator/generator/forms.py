@@ -6,6 +6,7 @@ from django import forms
 class DungeonGenerationForm(Form):
     height = forms.IntegerField(min_value=3, max_value=100, initial=70)
     width = forms.IntegerField(min_value=3, max_value=100, initial=70)
+    fullness = forms.FloatField(min_value=0.0, max_value=1.0, initial=0.7)
     room_size_method = forms.ChoiceField(
         choices=[
             ("fixed", "Fixed"),
