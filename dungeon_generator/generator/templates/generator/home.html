@@ -6,61 +6,65 @@
 </div>
 {% load static %}
 
-<div class="dungeon-generation">
-    <form class="dungeon-generation-form" method="post" novalidate>
-        {% csrf_token %}
-        <div class="form-subgroup">
-            {{ generation_form.height.label_tag }}
-            {{ generation_form.height }}
-            {{ generation_form.width.label_tag }}
-            {{ generation_form.width }}
-        </div>
-        <div class="form-subgroup">
-            {{ generation_form.room_size_method.label_tag }}
-            {{ generation_form.room_size_method }}
-        </div>
-        <div class="form-subgroup">
-            {{ generation_form.room_height.label_tag }}
-            {{ generation_form.room_height }}
-            {{ generation_form.room_width.label_tag }}
-            {{ generation_form.room_width }}
-        </div>
-        <div class="form-subgroup">
-            {{ generation_form.room_min_height_factor.label_tag }}
-            {{ generation_form.room_min_height_factor }}
-            {{ generation_form.room_max_height_factor.label_tag }}
-            {{ generation_form.room_max_height_factor }}
-            {{ generation_form.room_min_width_factor.label_tag }}
-            {{ generation_form.room_min_width_factor }}
-            {{ generation_form.room_max_width_factor.label_tag }}
-            {{ generation_form.room_max_width_factor }}
-        </div>
-        <div class="form-subgroup">
-            {{ generation_form.room_min_height.label_tag }}
+<form class="generation-form" method="post" novalidate>
+    {% csrf_token %}
+    {{generation_form.errors}}
+    <div class="form-group">
+        {{ generation_form.height.as_field_group }}
+        {{ generation_form.width.as_field_group }}
+    </div>
+    <div class="form-group">
+        {{ generation_form.room_size_method.as_field_group }}
+    </div>
+    <div class="form-subgroup disabled" id="fixed">
+        {{ generation_form.room_height.errors }}
+        {{ generation_form.room_width.errors }}
+        {{ generation_form.room_height.as_field_group }}
+        {{ generation_form.room_width.as_field_group }}
+    </div>
+    <div class="form_group" id="range">
+        <div class="form-group">
+            {{ generation_form.room_min_height.errors }}
+            {{ generation_form.room_max_height.errors }}
+            Room heights
             {{ generation_form.room_min_height }}
-            {{ generation_form.room_max_height.label_tag }}
+            -
             {{ generation_form.room_max_height }}
-            {{ generation_form.room_min_width.label_tag }}
+        </div>
+        <div class="form-group">
+            {{ generation_form.room_min_width.errors }}
+            {{ generation_form.room_max_width.errors }}
+            Room widths
             {{ generation_form.room_min_width }}
-            {{ generation_form.room_max_width.label_tag }}
+            -
             {{ generation_form.room_max_width }}
         </div>
-        <div class="form-subgroup">
-            {{ generation_form.name.label_tag }}
-            {{ generation_form.name }}
+    </div>
+    <div class="form_group disabled" id="factor">
+        <div class="form-group">
+            {{ generation_form.room_min_height_factor.errors }}
+            {{ generation_form.room_max_height_factor.errors }}
+            Room heights
+            {{ generation_form.room_min_height_factor }}
+            -
+            {{ generation_form.room_max_height_factor }}
         </div>
-        <div class="form-subgroup">
-            {{ generation_form.notes.label_tag }}
-            {{ generation_form.notes }}
+        <div class="form-group">
+            {{ generation_form.room_min_width_factor.errors }}
+            {{ generation_form.room_max_width_factor.errors }}
+            Room widths
+            {{ generation_form.room_min_width_factor }}
+            -
+            {{ generation_form.room_max_width_factor }}
         </div>
-        <div class="buttons">
-            <button type="submit" name="generate_dungeon">Generate dungeon
-            </button>
-            <button type="submit" name="remove_dungeons">Remove dungeons
-            </button>
-        </div>
-    </form>
-</div>
+    </div>
+    <div class="buttons">
+        <button type="submit" name="generate_dungeon">Generate dungeon
+        </button>
+        <button type="submit" name="remove_dungeons">Remove dungeons
+        </button>
+    </div>
+</form>
 <div class="wrapper">
     {% for dungeon in dungeons %}
     <div class="dungeon">
