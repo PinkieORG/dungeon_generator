@@ -4,10 +4,8 @@ from django import forms
 
 
 class DungeonGenerationForm(Form):
-    height = forms.IntegerField(min_value=3, max_value=100,
-                                initial=70)
-    width = forms.IntegerField(min_value=3, max_value=100,
-                               initial=70)
+    height = forms.IntegerField(min_value=3, max_value=100, initial=70)
+    width = forms.IntegerField(min_value=3, max_value=100, initial=70)
     room_size_method = forms.ChoiceField(
         choices=[
             ("fixed", "Fixed"),
@@ -15,6 +13,12 @@ class DungeonGenerationForm(Form):
             ("factor", "Factor of dungeon size"),
         ],
         initial="range",
+        widget=forms.Select(
+            attrs={
+                "onchange": "toggleMethod()",
+                "id": "room-size-method",
+            }
+        ),
     )
     room_height = forms.IntegerField(
         required=False, min_value=3, max_value=100, initial="12"
