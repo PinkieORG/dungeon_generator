@@ -1,6 +1,8 @@
 size.0: height
 size.1: width
 
+fullness: fullness
+
 room_size_method: room_size_method
 
 fixed_room_size.0: room_height
@@ -15,3 +17,4 @@ factor_room_size.0: room_min_height_factor
 factor_room_size.1: room_max_height_factor
 factor_room_size.2: room_min_width_factor
 factor_room_size.3: room_max_width_factor
+
