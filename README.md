@@ -1,7 +1,7 @@
 # Dungeon Generator
 A django-based interface for my dungeon generator library (https://github.com/PinkieORG/hamingja_dungeon).
 
-This is work-in-progress project for generating interesting, varied and highly customisable ASCII dungeon on a web.
+This is work-in-progress project for generating interesting, varied and highly customisable ASCII dungeons on a web that can used for pen-and-paper or video games.
 
 Current parameters are: 
 - size of the dungeon
