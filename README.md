@@ -3,6 +3,8 @@ A django-based interface for my dungeon generator library (https://github.com/Pi
 
 This is work-in-progress project for generating interesting, varied and highly customisable ASCII dungeons on a web that can used for pen-and-paper or video games.
 
+## Parameters for Generation
+
 Current parameters are: 
 - size of the dungeon
 - how much space the rooms and hallways take (fullness)
